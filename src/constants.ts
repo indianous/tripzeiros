@@ -13,9 +13,7 @@ type SocialMedia = {
 
 const aboutContent = { content: "" };
 const routes: Route[] = [
-  { text: "Loja", url: "/store" },
-  { text: "Blog", url: "/blog" },
-  { text: "Jogos", url: "/games" },
+  { text: "Excursões", url: "/trips" },
   { text: "Privacidade", url: "/privacity" },
   { text: "Sobre", url: "/about" },
   { text: "Ajuda", url: "/help" },
