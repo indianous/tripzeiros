@@ -23,5 +23,24 @@
 		"",
 		],
 		"description": "Build a REACT Page"
-	}
+	},
+	"Build a REACT Component": {
+		"scope": "javascriptreact,typescriptreact",
+		"prefix": "component",
+		"body": [
+			"import React from 'react';",
+			"",
+			"interface $1Props{}",
+			"",
+			"export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}({}:$1Props) {",
+			"\treturn (",
+			"\t\t<>",
+			"\t\t\t<h1>$1</h1>",
+			"\t\t</>",
+			"\t);",
+			"}",
+			"",
+		],
+		"description": "Build a REACT Component"
+	},
 }

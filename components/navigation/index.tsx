@@ -1,7 +1,6 @@
-import { DotsThreeVertical } from "@phosphor-icons/react";
+import { ArrowRight, DotsThreeVertical } from "@phosphor-icons/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import Sidebar from "../sidebar";
 import { routes } from "../../src/constants";
 
 export default function Navigation() {
@@ -9,14 +8,35 @@ export default function Navigation() {
 
   function toogleShowSideBar() {
     console.log("Nav", showSidebar);
-    setShowSidebar((state) => true);
+    setShowSidebar((state) => !state);
     console.log("Nav", showSidebar);
   }
 
   return (
     <header className="bg-pink-900 text-slate-100">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        {showSidebar && <Sidebar active={showSidebar} />}
+        {showSidebar && (
+          <div
+            id="mySidenav"
+            className="sidenav flex flex-col"
+            style={{ right: showSidebar ? 0 : -250 }}
+          >
+            <button className="px-8" onClick={toogleShowSideBar}>
+              <ArrowRight size={24} />
+            </button>
+            <ul>
+              {routes.map((route, index) => {
+                return (
+                  <li key={index}>
+                    <Link className="sidenav-item" href={route.url}>
+                      {route.text}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
             <Link className="block text-teal-600" href="/">
