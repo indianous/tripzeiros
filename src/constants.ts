@@ -14,9 +14,9 @@ type SocialMedia = {
 const aboutContent = { content: "" };
 const routes: Route[] = [
   { text: "Excursões", url: "/trips" },
-  { text: "Privacidade", url: "/privacity" },
-  { text: "Sobre", url: "/about" },
-  { text: "Ajuda", url: "/help" },
+  // { text: "Privacidade", url: "/privacity" },
+  // { text: "Sobre", url: "/about" },
+  // { text: "Ajuda", url: "/help" },
 ];
 const copyrightText = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
 consequuntur amet culpa cum itaque neque.`;
