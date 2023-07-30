@@ -1,7 +1,7 @@
 import { ArrowRight, DotsThreeVertical } from "@phosphor-icons/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { routes } from "../../src/constants";
+import { routes } from "../../constants";
 
 export default function Navigation() {
   const [showSidebar, setShowSidebar] = useState(false);

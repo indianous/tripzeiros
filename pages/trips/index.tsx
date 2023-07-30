@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../../components/layout";
+import Layout from "../../src/components/layout";
 import Head from "next/head";
-import TripCard from "../../components/trip-card";
-import Container from "../../components/container";
-import LocalBadge from "../../components/local-badge";
+import TripCard from "../../src/components/trip-card";
+import Container from "../../src/components/container";
+import LocalBadge from "../../src/components/local-badge";
 
 interface TripsProps {}
 

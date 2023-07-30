@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { copyrightText, routes, socialMedias } from "../../src/constants";
+import { copyrightText, routes, socialMedias } from "../../constants";
 
 export default function Footer() {
   return (
