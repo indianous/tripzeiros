@@ -32,24 +32,28 @@ model People {
 }
 
 model Image {
-    id               String          @id
-    createAt         DateTime
-    updateAt         DateTime
-    active           Boolean         @default(true)
-    url              String
-    alt              String
-    width            Int
-    height           Int
-    type             TypeImage
-    User             User?           @relation(fields: [userId], references: [id])
-    userId           String?
-    ProductService   ProductService? @relation(fields: [productServiceId], references: [id])
-    productServiceId String?
+    id        String    @id
+    createAt  DateTime
+    updateAt  DateTime
+    active    Boolean   @default(true)
+    url       String
+    alt       String
+    width     Int
+    height    Int
+    type      TypeImage
+    User      User?     @relation(fields: [userId], references: [id])
+    userId    String?
+    Service   Service?  @relation(fields: [serviceId], references: [id])
+    serviceId String?
+    Trip      Trip?     @relation(fields: [tripId], references: [id])
+    tripId    String?
 }
 
 enum TypeImage {
     avatar
     banner
+    thumbnail
+    galery
 }
 
 model Traveler {
@@ -82,33 +86,75 @@ enum Role {
     non_admin
 }
 
-model ProductService {
-    id          String             @id
+model Service {
+    id          String      @id
     createAt    DateTime
     updateAt    DateTime
-    active      Boolean            @default(true)
+    active      Boolean     @default(true)
     name        String
-    price       String
+    price       Decimal
     image       Image[]
     description String
-    trip        Trip[]
-    type        TypeProductService
+    type        TypeService
+    Trip        Trip[]
 }
 
-enum TypeProductService {
-    product
-    service
-    accommodation
+enum TypeService {
+    trail
+    tour
 }
 
 model Trip {
-    id             String           @id
-    createAt       DateTime
-    updateAt       DateTime
-    active         Boolean          @default(true)
-    productService ProductService[]
-    name           String
-    description    String
-    start          DateTime
-    end            DateTime
+    id              String         @id
+    createAt        DateTime
+    updateAt        DateTime
+    active          Boolean        @default(true)
+    name            String
+    description     String
+    start           DateTime
+    end             DateTime
+    Accommodation   Accommodation? @relation(fields: [accommodationId], references: [id])
+    accommodationId String?
+    Service         Service[]
+    Image           Image[]
+    price           Decimal
+}
+
+model Accommodation {
+    id          String                 @id
+    createAt    DateTime
+    updateAt    DateTime
+    active      Boolean                @default(true)
+    name        String
+    rating      String
+    service     ServiceAccommodation[]
+    locale      String
+    description String
+    nearbyPlace NearbyPlaces[]
+    Trip        Trip[]
+    price       Decimal
+}
+
+model NearbyPlaces {
+    id              String            @id
+    createAt        DateTime
+    updateAt        DateTime
+    active          Boolean           @default(true)
+    name            String
+    type            NearbyPlacesTypes
+    Accommodation   Accommodation?    @relation(fields: [accommodationId], references: [id])
+    accommodationId String?
+}
+
+enum NearbyPlacesTypes {
+    beach
+    market
+}
+
+model ServiceAccommodation {
+    id           String          @id
+    createAt     DateTime
+    updateAt     DateTime
+    active       Boolean         @default(true)
+    accomodation Accommodation[]
 }

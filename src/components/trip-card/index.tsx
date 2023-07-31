@@ -10,7 +10,7 @@ interface TripCardProps {
 
 export default function TripCard({}: TripCardProps) {
   const data = {
-    slug: "#",
+    slug: "/trips/trip",
     image: {
       alt: "Office",
       url: "/images/jm-2katanas-4-full-hd.jpg",

@@ -1,6 +1,3 @@
-import { TwitterLogo } from "@phosphor-icons/react";
-import React from "react";
-
 type Route = {
   url: string;
   text: string;
@@ -18,12 +15,12 @@ const routes: Route[] = [
   // { text: "Sobre", url: "/about" },
   // { text: "Ajuda", url: "/help" },
 ];
-const copyrightText = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-consequuntur amet culpa cum itaque neque.`;
+const copyrightText = `Todos os direitos reservados.
+Tripzeiros - 2023`;
 const socialMedias: SocialMedia[] = [
-  { text: "Facebook", url: "/" },
-  { text: "Twitter", url: "/" },
-  { text: "Instagram", url: "/" },
+  { text: "Facebook", url: "https://facebook.com/tripzeiros" },
+  { text: "Twitter", url: "https://twitter.com/tripzeiros" },
+  { text: "Instagram", url: "https://instagram/tripzerios.viagens" },
 ];
 
 export { aboutContent, routes, copyrightText, socialMedias };
