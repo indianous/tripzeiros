@@ -1,4 +1,4 @@
-import { findTourBySlugService } from "@/src/services/findTourBySlug";
+import { findTourBySlugService } from "@/backend/src/services/findTourBySlug";
 import TourViewer from "@/src/components/viewers/tour-viewer";
 
 interface PageProps {

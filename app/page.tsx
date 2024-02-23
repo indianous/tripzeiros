@@ -1,17 +1,19 @@
 import { Card } from "@/src/components/card";
 import { Footer } from "@/src/components/footer";
-import { findAllToursService } from "@/src/services/findAllTour";
+import CreateLocationForm from "@/src/components/forms/create-location-form";
+import { findAllToursService } from "@/backend/src/services/findAllTour";
 import { Heading } from "@chakra-ui/react";
 
 export default async function Home() {
-  const tours = await findAllToursService.execute();
+  // const tours = await findAllToursService.execute();
   return (
     <>
       <main className="flex flex-col items-center justify-center p-4 shadow-md">
+        <CreateLocationForm />
         <div className=" pt-8">
           <Heading className="mb-8">Excursões</Heading>
           <div className="grid grid-cols-8 gap-4">
-            {tours.map(({ title, slug, price, images }, index) => {
+            {/* {tours.map(({ title, slug, price, images }, index) => {
               const image = images[0];
               return (
                 <div className="col-span-2" key={index}>
@@ -30,7 +32,7 @@ export default async function Home() {
                   />
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
       </main>
